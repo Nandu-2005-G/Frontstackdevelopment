@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-<h1>My first SVG</h1>
-
-<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-</svg>
-
-</body>
+  <boby>
+    <p> cilick on the button to get location</p>
+<button onclick="getLocation()">Try it</button>
+<p id="demo"></p>
+<script>
+   var x=document.getElementById("demo");
+   function getLocation(){
+      if(navigator.geolocation){
+         navigator.geolocation.getCurrentPosition(showPosition);
+      }
+   else{
+      x.innerHTML="getlocation not supported";
+   }
+   }
+   function showPosition(position){
+      const lat=position.coords.latitude;
+      const lon=position.coords.longitude;
+      x.innerHTML="latitude"+lat+"<br>longitude:"+lon;
+   }
+</script>
+  </boby>
 </html>
